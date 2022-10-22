@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : D_FLIPFLOP.vf
+// /___/   /\     Timestamp : 10/31/2021 09:44:15
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family kintex7 -verilog C:/ISE_Project/MyLATCHS/D_FLIPFLOP.vf -w C:/ISE_Project/MyLATCHS/D_FLIPFLOP.sch
+//Design Name: D_FLIPFLOP
+//Device: kintex7
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module D_FLIPFLOP(Cp, 
+                  D, 
+                  Rbar, 
+                  Sbar, 
+                  Q, 
+                  Qbar);
+
+    input Cp;
+    input D;
+    input Rbar;
+    input Sbar;
+   output Q;
+   output Qbar;
+   
+   wire XLXN_7;
+   wire XLXN_8;
+   wire XLXN_9;
+   wire XLXN_11;
+   wire Q_DUMMY;
+   wire Qbar_DUMMY;
+   
+   assign Q = Q_DUMMY;
+   assign Qbar = Qbar_DUMMY;
+   NAND3  XLXI_1 (.I0(XLXN_7), 
+                 .I1(XLXN_9), 
+                 .I2(Sbar), 
+                 .O(XLXN_8));
+   NAND3  XLXI_2 (.I0(Cp), 
+                 .I1(Rbar), 
+                 .I2(XLXN_8), 
+                 .O(XLXN_7));
+   NAND3  XLXI_3 (.I0(XLXN_9), 
+                 .I1(Cp), 
+                 .I2(XLXN_7), 
+                 .O(XLXN_11));
+   NAND3  XLXI_4 (.I0(Rbar), 
+                 .I1(D), 
+                 .I2(XLXN_11), 
+                 .O(XLXN_9));
+   NAND3  XLXI_5 (.I0(Qbar_DUMMY), 
+                 .I1(XLXN_7), 
+                 .I2(Sbar), 
+                 .O(Q_DUMMY));
+   NAND3  XLXI_6 (.I0(Rbar), 
+                 .I1(XLXN_11), 
+                 .I2(Q_DUMMY), 
+                 .O(Qbar_DUMMY));
+endmodule

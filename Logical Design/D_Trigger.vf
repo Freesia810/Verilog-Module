@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : D_Trigger.vf
+// /___/   /\     Timestamp : 11/13/2021 18:39:07
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\sch2hdl.exe -intstyle ise -family kintex7 -verilog D_Trigger.vf -w C:/ISE_Project/MyLATCHS/D_Trigger.sch
+//Design Name: D_Trigger
+//Device: kintex7
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module D_Trigger(Cp, 
+                 D, 
+                 Q, 
+                 Qbar);
+
+    input Cp;
+    input D;
+   output Q;
+   output Qbar;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_5;
+   wire Q_DUMMY;
+   wire Qbar_DUMMY;
+   
+   assign Q = Q_DUMMY;
+   assign Qbar = Qbar_DUMMY;
+   NAND2  XLXI_1 (.I0(Cp), 
+                 .I1(D), 
+                 .O(XLXN_2));
+   NAND2  XLXI_2 (.I0(XLXN_5), 
+                 .I1(Cp), 
+                 .O(XLXN_1));
+   NAND2  XLXI_3 (.I0(Qbar_DUMMY), 
+                 .I1(XLXN_2), 
+                 .O(Q_DUMMY));
+   NAND2  XLXI_4 (.I0(XLXN_1), 
+                 .I1(Q_DUMMY), 
+                 .O(Qbar_DUMMY));
+   INV  XLXI_5 (.I(D), 
+               .O(XLXN_5));
+endmodule
